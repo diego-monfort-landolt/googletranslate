@@ -1,12 +1,14 @@
+import { type AUTO_LANGUAGES, type SUPPORTED_LANGUAGES } from './constants'
 
-import { type SUPPORTED_LANGUAGES } from './constants'
-
-export Language = keyof typeof SUPPORTED_LANGUAGES
+export type Language = keyof typeof SUPPORTED_LANGUAGES
+export type AutoLanguage = typeof AUTO_LANGUAGES
+export type FromLanguage = Language | AutoLanguage
 
 export interface State {
   fromLanguage: string
   toLanguage: string
   fromText: string
+  reult: string
   loading: boolean
 }
 export type Action =
