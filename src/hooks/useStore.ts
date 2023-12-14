@@ -4,7 +4,7 @@ import { AUTO_LANGUAGES } from '../constants'
 
 const initialState: State = {
   fromLanguage: 'auto',
-  toLanguage: 'en',
+  toLanguage: 'es',
   fromText: '',
   result: '',
   loading: false
