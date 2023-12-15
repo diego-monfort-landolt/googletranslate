@@ -9,7 +9,19 @@ import { SectionType } from './types.d'
 import { TextArea } from './components/TextArea'
 
 function App () {
-  const { fromLanguage, toLanguage, fromText, result, setFromLanguage, setToLanguage, interchangeLangages, setFromText, setResult } = useStore()
+  const {
+    loading,
+    fromLanguage,
+    toLanguage,
+    fromText,
+    result,
+    setFromLanguage,
+    setToLanguage,
+    interchangeLangages,
+    setFromText,
+    setResult
+  } = useStore()
+
   return (
     <>
       <Container fluid>
@@ -47,6 +59,7 @@ function App () {
                 type={ SectionType.To }
                 value={result}
                 onChange={setResult}
+                loading={loading}
                 />
             </Stack>
           </Col>
