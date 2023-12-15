@@ -6,30 +6,32 @@ import { AUTO_LANGUAGES } from './constants'
 import { ArrowsIcon } from './components/Icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { SectionType } from './types.d'
+import { TextArea } from './components/TextArea'
 
 function App () {
-  const { fromLanguage, toLanguage, setFromLanguage, setToLanguage, interchangeLangages } = useStore()
+  const { fromLanguage, toLanguage, fromText, result, setFromLanguage, setToLanguage, interchangeLangages, setFromText, setResult } = useStore()
   return (
     <>
       <Container fluid>
         <h1>Google Translate</h1>
 
-        <Row xs='auto'>
+        <Row>
           <Col>
             <Stack gap={2}>
               <LanguageSelector
                 type={SectionType.From}
                 value={fromLanguage}
                 onChange={setFromLanguage} />
-              <Form.Control
-                as='textarea'
-                placeholder='Introducir texto...'
-                autoFocus
-                style={{ height: '150px' }} />
+
+              <TextArea
+                type={SectionType.From}
+                value={fromText}
+                onChange={setFromText}
+                />
             </Stack>
 
           </Col>
-          <Col>
+          <Col xs='auto'>
             <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGES} onClick={interchangeLangages}>
               <ArrowsIcon />
             </Button>
@@ -41,10 +43,11 @@ function App () {
                 value={toLanguage}
                 onChange={setToLanguage}
               />
-              <Form.Control
-                as='textarea'
-                placeholder='Traduccion'
-                style={{ height: '150px' }} />
+              <TextArea
+                type={ SectionType.To }
+                value={result}
+                onChange={setResult}
+                />
             </Stack>
           </Col>
         </Row>
