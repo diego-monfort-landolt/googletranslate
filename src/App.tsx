@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import { Container, Row, Col, Button, Form, Stack } from 'react-bootstrap'
+import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import { useStore } from './hooks/useStore'
 import { AUTO_LANGUAGES } from './constants'
 import { ArrowsIcon } from './components/Icons'
@@ -26,7 +26,6 @@ function App () {
     <>
       <Container fluid>
         <h1>Google Translate</h1>
-
         <Row>
           <Col>
             <Stack gap={2}>
@@ -34,14 +33,12 @@ function App () {
                 type={SectionType.From}
                 value={fromLanguage}
                 onChange={setFromLanguage} />
-
               <TextArea
                 type={SectionType.From}
                 value={fromText}
                 onChange={setFromText}
                 />
             </Stack>
-
           </Col>
           <Col xs='auto'>
             <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGES} onClick={interchangeLangages}>
